@@ -1,0 +1,65 @@
+:host(.st-theme-minimal) {
+  --st-bg: transparent;
+  --st-bg-elevated: rgba(0, 0, 0, 0.02);
+  --st-bg-glass: transparent;
+  --st-bg-now: linear-gradient(135deg, #111 0%, #1a1a1a 100%);
+  --st-text: #111;
+  --st-text-secondary: #444;
+  --st-text-tertiary: #888;
+  --st-accent: #111;
+  --st-accent-glow: rgba(0, 0, 0, 0.04);
+  --st-border: rgba(0, 0, 0, 0.08);
+  --st-border-subtle: rgba(0, 0, 0, 0.04);
+  --st-radius: 0px;
+  --st-radius-sm: 0px;
+  --st-radius-xs: 0px;
+  --st-shadow: none;
+  --st-shadow-lg: none;
+  --st-shadow-glow: none;
+  --st-font: 'Inter', -apple-system, system-ui, sans-serif;
+}
+
+:host(.st-theme-minimal) .st-root {
+  border: none;
+  border-top: 2px solid var(--st-text);
+  border-radius: 0;
+}
+
+:host(.st-theme-minimal) .st-root:hover {
+  box-shadow: none;
+}
+
+:host(.st-theme-minimal) .st-stat:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: var(--st-text);
+}
+
+:host(.st-theme-minimal) .st-service-pill {
+  border-radius: 0;
+  width: 24px;
+  height: 24px;
+}
+
+:host(.st-theme-minimal) .st-now-image {
+  border-radius: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :host(.st-theme-minimal) {
+    --st-bg: transparent;
+    --st-bg-elevated: rgba(255, 255, 255, 0.04);
+    --st-bg-now: linear-gradient(135deg, #0a0a0a 0%, #151515 100%);
+    --st-text: #eee;
+    --st-text-secondary: #999;
+    --st-text-tertiary: #555;
+    --st-accent: #eee;
+    --st-accent-glow: rgba(255, 255, 255, 0.04);
+    --st-border: rgba(255, 255, 255, 0.1);
+    --st-border-subtle: rgba(255, 255, 255, 0.04);
+  }
+
+  :host(.st-theme-minimal) .st-root {
+    border-top-color: var(--st-text);
+  }
+}

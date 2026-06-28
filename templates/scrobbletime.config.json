@@ -1,0 +1,87 @@
+{
+  "version": 1,
+  "username": "your-username",
+  "syncInterval": "30m",
+  "services": {
+    "github": {
+      "enabled": true,
+      "username": "your-github-username",
+      "visibility": {
+        "currentProject": true,
+        "languages": true,
+        "commitStreak": true,
+        "recentCommits": true,
+        "publicRepos": true,
+        "followers": true
+      }
+    },
+    "spotify": {
+      "enabled": false,
+      "visibility": {
+        "nowPlaying": true,
+        "recentTracks": true,
+        "topGenres": true
+      }
+    },
+    "youtube-music": {
+      "enabled": false,
+      "visibility": {
+        "recentLiked": true,
+        "likedCount": true
+      }
+    },
+    "chess-com": {
+      "enabled": false,
+      "username": "your-chess-username",
+      "visibility": {
+        "ratings": true,
+        "recentGames": true,
+        "winRate": true,
+        "totalGames": true
+      }
+    },
+    "lichess": {
+      "enabled": false,
+      "username": "your-lichess-username",
+      "visibility": {
+        "ratings": true,
+        "recentGames": true,
+        "winRate": true,
+        "totalGames": true
+      }
+    },
+    "letterboxd": {
+      "enabled": false,
+      "username": "your-letterboxd-username",
+      "visibility": {
+        "recentFilms": true,
+        "filmCount": true,
+        "ratings": true
+      }
+    },
+    "goodreads": {
+      "enabled": false,
+      "username": "your-goodreads-user-id",
+      "visibility": {
+        "currentlyReading": true,
+        "recentBooks": true,
+        "bookCount": true,
+        "ratings": true
+      }
+    },
+    "strava": {
+      "enabled": false,
+      "visibility": {
+        "recentActivities": true,
+        "totalDistance": true,
+        "totalActivities": true,
+        "ytdStats": true
+      }
+    }
+  },
+  "embed": {
+    "layout": "card",
+    "theme": "auto",
+    "density": "comfortable"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "scrobbletime",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/schema",
+    "packages/connectors",
+    "packages/embed",
+    "packages/wizard"
+  ],
+  "scripts": {
+    "build:schema": "npm -w @scrobbletime/schema run build",
+    "build:connectors": "npm -w @scrobbletime/connectors run build",
+    "build:embed": "npm -w @scrobbletime/embed run build",
+    "build:wizard": "npm -w @scrobbletime/wizard run build",
+    "build": "npm run build:schema && npm run build:connectors && npm run build:embed && npm run build:wizard",
+    "dev:embed": "npm -w @scrobbletime/embed run dev",
+    "dev:wizard": "npm -w @scrobbletime/wizard run dev",
+    "sync": "tsx scripts/sync.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.1",
+    "tsx": "^4.16.0",
+    "typescript": "^5.5.0"
+  }
+}

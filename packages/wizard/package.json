@@ -1,0 +1,17 @@
+{
+  "name": "@scrobbletime/wizard",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite"
+  },
+  "dependencies": {
+    "@scrobbletime/embed": "*",
+    "@scrobbletime/schema": "*"
+  },
+  "devDependencies": {
+    "vite": "^5.4.21"
+  }
+}
