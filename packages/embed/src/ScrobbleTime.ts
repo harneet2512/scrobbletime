@@ -129,11 +129,24 @@ export class ScrobbleTimeElement extends HTMLElement {
     switch (this.layout) {
       case 'signature': return renderSignature(data);
       case 'profile': return renderProfile(data);
-      case 'bento': return renderBento(data);
+      case 'bento': return renderBento(data, this.getBentoOverrides());
       case 'immersive': return renderImmersive(data);
       case 'card':
       default: return renderCard(data);
     }
+  }
+
+  private getBentoOverrides(): Record<string, string> {
+    const o: Record<string, string> = {};
+    const cols = this.getAttribute('data-columns') ?? this.getAttribute('columns');
+    const gap = this.getAttribute('data-gap') ?? this.getAttribute('gap');
+    const radius = this.getAttribute('data-radius') ?? this.getAttribute('radius');
+    const accent = this.getAttribute('data-accent') ?? this.getAttribute('accent');
+    if (cols) o.columns = cols;
+    if (gap) o.gap = gap;
+    if (radius) o.radius = radius;
+    if (accent) o.accent = accent;
+    return o;
   }
 
   private renderSkeleton(): string {

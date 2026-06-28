@@ -11,6 +11,8 @@ export type {
   StatItem,
   StatGroup,
   ActivityData,
+  TileOverride,
+  DisplayConfig,
 } from './activity.js';
 
 export type {
@@ -25,6 +27,8 @@ export type {
   ThemeType,
   DensityType,
   SyncInterval,
+  TileSize,
+  TileConfig,
   ServiceConfig,
   EmbedConfig,
   ScrobbleTimeConfig,

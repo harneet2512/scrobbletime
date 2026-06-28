@@ -17,6 +17,7 @@ const mockData: ActivityData = {
     'chess-com': { service: 'chess-com', status: 'active', lastSync: new Date().toISOString() },
     letterboxd: { service: 'letterboxd', status: 'stale', lastSync: new Date(Date.now() - 3600000).toISOString(), error: 'RSS timeout' },
     goodreads: { service: 'goodreads', status: 'active', lastSync: new Date().toISOString() },
+    strava: { service: 'strava', status: 'active', lastSync: new Date().toISOString() },
   },
   now: {
     service: 'spotify',
@@ -104,6 +105,22 @@ const mockData: ActivityData = {
       items: [
         { key: 'currentlyReading', label: 'Currently Reading', value: 'Designing Data-Intensive Applications' },
         { key: 'bookCount', label: 'Books 2026', value: 12, unit: 'books' },
+      ],
+    },
+    spotify: {
+      service: 'spotify',
+      label: 'Spotify',
+      items: [
+        { key: 'topGenres', label: 'Top Genres', value: 'Indie, Electronic, Jazz' },
+        { key: 'recentCount', label: 'Recently Played', value: 10, unit: 'tracks' },
+      ],
+    },
+    strava: {
+      service: 'strava',
+      label: 'Strava',
+      items: [
+        { key: 'totalRunDistance', label: 'Total Run Distance', value: 847, unit: 'km' },
+        { key: 'activitiesWeek', label: 'This Week', value: 4, unit: 'activities' },
       ],
     },
     letterboxd: {

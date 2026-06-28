@@ -88,6 +88,21 @@ export interface StatGroup {
   items: StatItem[];
 }
 
+export interface TileOverride {
+  id: string;
+  size?: '1x1' | '2x1';
+  color?: string;
+  hidden?: boolean;
+}
+
+export interface DisplayConfig {
+  tiles?: TileOverride[];
+  columns?: number;
+  gap?: number;
+  radius?: number;
+  accentColor?: string;
+}
+
 export interface ActivityData {
   version: 1;
   lastSync: string;
@@ -96,4 +111,5 @@ export interface ActivityData {
   now: NowActivity | null;
   recent: RecentEvent[];
   stats: Record<string, StatGroup>;
+  display?: DisplayConfig;
 }

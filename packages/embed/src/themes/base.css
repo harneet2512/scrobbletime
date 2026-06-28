@@ -734,6 +734,73 @@
 .st-tile-fitness .st-tile-meta { color: rgba(255,255,255,0.5); }
 .st-tile-fitness .st-tile-stat { color: rgba(255,255,255,0.35); }
 
+/* Music tile */
+.st-tile-music {
+  background: linear-gradient(135deg, #1a1a2e 0%, #0d0d1a 100%);
+  border-color: rgba(99, 102, 241, 0.15);
+  position: relative;
+}
+
+.st-music-eq-bg {
+  position: absolute;
+  bottom: 8px;
+  left: 12px;
+  right: 12px;
+  height: 50%;
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  opacity: 0.12;
+}
+
+.st-music-eq-bar {
+  flex: 1;
+  background: var(--st-accent);
+  border-radius: 2px 2px 0 0;
+  animation: st-eq 1.4s ease-in-out infinite;
+}
+
+.st-tile-music-content {
+  position: relative;
+  z-index: 1;
+}
+
+.st-tile-music .st-tile-title { color: #fff; }
+.st-tile-music .st-tile-meta { color: rgba(255,255,255,0.45); }
+.st-tile-music .st-tile-stat { color: rgba(255,255,255,0.3); }
+
+/* Film strip + stars */
+.st-film-strip {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  opacity: 0.08;
+}
+
+.st-film-perf {
+  width: 8px;
+  height: 6px;
+  border-radius: 1px;
+  background: var(--st-text);
+}
+
+.st-film-stars {
+  display: flex;
+  gap: 1px;
+  margin-top: 2px;
+}
+
+.st-star {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.st-star-full { color: #00e054; }
+.st-star-half { color: #00e054; opacity: 0.5; }
+
 /* Bento footer */
 .st-bento-footer {
   grid-column: 1 / -1;
