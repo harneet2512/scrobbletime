@@ -255,7 +255,7 @@ function createReadingTile(stats: { items: Array<{ key: string; value: string | 
     const spine = el('div', { class: 'st-spine' });
     spine.style.height = `${h}%`;
     spine.style.background = colors[i % colors.length];
-    spine.style.opacity = '0.2';
+    spine.style.opacity = '0.45';
     spinesSvg.appendChild(spine);
   });
   tile.appendChild(spinesSvg);

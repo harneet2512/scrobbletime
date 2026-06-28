@@ -511,22 +511,24 @@
 
 /* Now tile */
 .st-tile-now {
-  background: var(--st-bg-hero);
-  border-color: transparent;
+  background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+  border-color: rgba(99, 102, 241, 0.15);
   min-height: 100px;
   flex-direction: row;
   align-items: center;
   gap: 16px;
 }
 
-.st-tile-now .st-tile-label { color: rgba(255,255,255,0.4); }
+.st-tile-now .st-tile-label { color: rgba(129, 140, 248, 0.7); }
 .st-tile-now .st-tile-title { color: #fff; }
 .st-tile-now .st-tile-meta { color: rgba(255,255,255,0.5); }
 
 .st-tile-now-bg {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 30% 40%, rgba(99,102,241,0.15), transparent 70%);
+  background:
+    radial-gradient(ellipse at 15% 50%, rgba(99,102,241,0.2), transparent 60%),
+    radial-gradient(ellipse at 85% 30%, rgba(236, 72, 153, 0.1), transparent 50%);
   pointer-events: none;
 }
 
@@ -574,49 +576,76 @@
   50% { transform: scaleY(1); }
 }
 
-/* Code tile */
-.st-tile-code { justify-content: flex-start; gap: 10px; }
-
-.st-tile-term {
-  display: flex;
-  align-items: center;
-  gap: 6px;
+/* ── Code tile ── */
+.st-tile-code {
+  justify-content: flex-start;
+  gap: 10px;
+  background: linear-gradient(145deg, #1e1e2e 0%, #11111b 100%);
+  border-color: rgba(137, 180, 250, 0.12);
 }
 
-.st-tile-term-dots {
-  display: flex;
-  gap: 4px;
-}
+.st-tile-code .st-tile-title { color: #cdd6f4; }
+.st-tile-code .st-tile-stat { color: rgba(205, 214, 244, 0.4); }
+
+.st-tile-term { display: flex; align-items: center; gap: 6px; }
+.st-tile-term-dots { display: flex; gap: 5px; }
 
 .st-dot-red, .st-dot-yellow, .st-dot-green {
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
 }
 
-.st-dot-red { background: #ff5f57; }
-.st-dot-yellow { background: #febc2e; }
-.st-dot-green { background: #28c840; }
+.st-dot-red { background: #f38ba8; }
+.st-dot-yellow { background: #f9e2af; }
+.st-dot-green { background: #a6e3a1; }
 
-.st-lang-bars { display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.st-lang-bars { display: flex; flex-direction: column; gap: 7px; flex: 1; }
 .st-lang-row { display: flex; align-items: center; gap: 8px; }
-.st-lang-bar { height: 6px; border-radius: 3px; min-width: 20px; transition: width 0.6s ease; }
-.st-lang-name { font-size: 11px; color: var(--st-text-secondary); white-space: nowrap; }
+.st-lang-bar {
+  height: 8px;
+  border-radius: 4px;
+  min-width: 20px;
+  transition: width 0.6s ease;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}
+.st-lang-name {
+  font-size: 11px;
+  color: rgba(205, 214, 244, 0.6);
+  white-space: nowrap;
+  font-weight: 500;
+}
 
-/* Chess tile */
+/* ── Chess tile ── */
 .st-tile-chess {
-  background: linear-gradient(135deg, #2d4a22 0%, #1a2e14 100%);
-  border-color: rgba(118, 150, 86, 0.2);
+  background: linear-gradient(145deg, #4a7c3f 0%, #2d5a1e 50%, #1a3a10 100%);
+  border-color: rgba(118, 150, 86, 0.25);
   position: relative;
+}
+
+.st-tile-chess::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.06;
+  background-image:
+    linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(255,255,255,0.1) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.1) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.1) 75%);
+  background-size: 24px 24px;
+  background-position: 0 0, 0 12px, 12px -12px, -12px 0;
+  pointer-events: none;
+  border-radius: inherit;
 }
 
 .st-tile-chess-bg {
   position: absolute;
-  right: -10px;
-  bottom: -10px;
-  width: 90px;
-  height: 90px;
-  color: rgba(255,255,255,0.08);
+  right: -8px;
+  bottom: -8px;
+  width: 100px;
+  height: 100px;
+  color: rgba(255,255,255,0.1);
 }
 
 .st-tile-chess-bg svg { width: 100%; height: 100%; }
@@ -627,7 +656,7 @@
   z-index: 1;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
 }
 
 .st-chess-rating {
@@ -637,33 +666,44 @@
 }
 
 .st-chess-value {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 700;
   color: #fff;
   letter-spacing: -0.03em;
   font-variant-numeric: tabular-nums;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.3);
 }
 
 .st-chess-label {
   font-size: 11px;
-  font-weight: 500;
-  color: rgba(255,255,255,0.45);
+  font-weight: 600;
+  color: rgba(255,255,255,0.5);
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
 
-/* Reading tile */
+/* ── Reading tile ── */
 .st-tile-reading {
   position: relative;
   justify-content: flex-end;
+  background: linear-gradient(145deg, #fef3c7 0%, #fde68a 40%, #f59e0b 100%);
+  border-color: rgba(245, 158, 11, 0.2);
 }
+
+.st-tile-reading .st-tile-title {
+  color: #451a03;
+  font-size: 13px;
+}
+
+.st-tile-reading .st-tile-meta { color: #92400e; }
+.st-tile-reading .st-tile-stat { color: rgba(69, 26, 3, 0.5); }
 
 .st-book-spines {
   position: absolute;
-  top: 12px;
-  right: 12px;
-  bottom: 40%;
-  width: 60%;
+  top: 10px;
+  right: 10px;
+  bottom: 45%;
+  width: 55%;
   display: flex;
   align-items: flex-end;
   gap: 3px;
@@ -680,32 +720,51 @@
   z-index: 1;
 }
 
-/* Film tile */
-.st-tile-film { position: relative; }
-
-.st-film-frames {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3px;
-  opacity: 0.08;
+/* ── Film tile ── */
+.st-tile-film {
+  position: relative;
+  background: linear-gradient(145deg, #14532d 0%, #064e3b 50%, #022c22 100%);
+  border-color: rgba(0, 224, 84, 0.15);
 }
 
-.st-film-frame {
-  width: 20px;
-  height: 14px;
-  border-radius: 2px;
-  border: 1.5px solid var(--st-text);
+.st-tile-film .st-tile-title { color: #fff; }
+.st-tile-film .st-tile-stat { color: rgba(255,255,255,0.4); }
+
+.st-film-strip {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  bottom: 0;
+  width: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 8px 0;
+}
+
+.st-film-perf {
+  width: 100%;
+  height: 5px;
+  border-radius: 1px;
+  background: rgba(255,255,255,0.08);
 }
 
 .st-tile-film-content { position: relative; z-index: 1; }
 
-/* Fitness tile */
+.st-film-stars {
+  display: flex;
+  gap: 1px;
+  margin-top: 4px;
+}
+
+.st-star { font-size: 16px; line-height: 1; }
+.st-star-full { color: #00e054; }
+.st-star-half { color: #00e054; opacity: 0.5; }
+
+/* ── Fitness tile ── */
 .st-tile-fitness {
-  background: linear-gradient(135deg, #7c2d12 0%, #451a03 100%);
-  border-color: rgba(252, 76, 2, 0.15);
+  background: linear-gradient(145deg, #fb923c 0%, #ea580c 50%, #c2410c 100%);
+  border-color: rgba(251, 146, 60, 0.2);
   position: relative;
 }
 
@@ -713,9 +772,9 @@
   position: absolute;
   right: -5px;
   bottom: -5px;
-  width: 80px;
-  height: 80px;
-  color: #fff;
+  width: 90px;
+  height: 90px;
+  color: rgba(255,255,255,0.15);
 }
 
 .st-tile-fitness-bg svg { width: 100%; height: 100%; }
@@ -724,38 +783,39 @@
 .st-tile-fitness-content { position: relative; z-index: 1; }
 
 .st-fitness-big {
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 700;
   color: #fff;
   letter-spacing: -0.03em;
   font-variant-numeric: tabular-nums;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
-.st-tile-fitness .st-tile-meta { color: rgba(255,255,255,0.5); }
-.st-tile-fitness .st-tile-stat { color: rgba(255,255,255,0.35); }
+.st-tile-fitness .st-tile-meta { color: rgba(255,255,255,0.7); }
+.st-tile-fitness .st-tile-stat { color: rgba(255,255,255,0.5); }
 
-/* Music tile */
+/* ── Music tile ── */
 .st-tile-music {
-  background: linear-gradient(135deg, #1a1a2e 0%, #0d0d1a 100%);
-  border-color: rgba(99, 102, 241, 0.15);
+  background: linear-gradient(145deg, #7c3aed 0%, #6d28d9 50%, #4c1d95 100%);
+  border-color: rgba(139, 92, 246, 0.2);
   position: relative;
 }
 
 .st-music-eq-bg {
   position: absolute;
-  bottom: 8px;
-  left: 12px;
-  right: 12px;
+  bottom: 6px;
+  left: 14px;
+  right: 14px;
   height: 50%;
   display: flex;
   align-items: flex-end;
   gap: 3px;
-  opacity: 0.12;
+  opacity: 0.2;
 }
 
 .st-music-eq-bar {
   flex: 1;
-  background: var(--st-accent);
+  background: rgba(255,255,255,0.6);
   border-radius: 2px 2px 0 0;
   animation: st-eq 1.4s ease-in-out infinite;
 }
@@ -766,40 +826,8 @@
 }
 
 .st-tile-music .st-tile-title { color: #fff; }
-.st-tile-music .st-tile-meta { color: rgba(255,255,255,0.45); }
-.st-tile-music .st-tile-stat { color: rgba(255,255,255,0.3); }
-
-/* Film strip + stars */
-.st-film-strip {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  opacity: 0.08;
-}
-
-.st-film-perf {
-  width: 8px;
-  height: 6px;
-  border-radius: 1px;
-  background: var(--st-text);
-}
-
-.st-film-stars {
-  display: flex;
-  gap: 1px;
-  margin-top: 2px;
-}
-
-.st-star {
-  font-size: 14px;
-  line-height: 1;
-}
-
-.st-star-full { color: #00e054; }
-.st-star-half { color: #00e054; opacity: 0.5; }
+.st-tile-music .st-tile-meta { color: rgba(255,255,255,0.6); }
+.st-tile-music .st-tile-stat { color: rgba(255,255,255,0.4); }
 
 /* Bento footer */
 .st-bento-footer {
