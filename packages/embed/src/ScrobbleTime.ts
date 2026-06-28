@@ -3,6 +3,8 @@ import { fetchActivityData } from './fetcher.js';
 import { renderSignature } from './layouts/signature.js';
 import { renderCard } from './layouts/card.js';
 import { renderProfile } from './layouts/profile.js';
+import { renderBento } from './layouts/bento.js';
+import { renderImmersive } from './layouts/immersive.js';
 
 import baseCSS from './themes/base.css?inline';
 import professionalCSS from './themes/professional.css?inline';
@@ -127,6 +129,8 @@ export class ScrobbleTimeElement extends HTMLElement {
     switch (this.layout) {
       case 'signature': return renderSignature(data);
       case 'profile': return renderProfile(data);
+      case 'bento': return renderBento(data);
+      case 'immersive': return renderImmersive(data);
       case 'card':
       default: return renderCard(data);
     }

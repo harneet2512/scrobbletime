@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ScrobbleTime — Design Preview</title>
+  <title>ScrobbleTime — Design Comparison</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -16,141 +16,90 @@
     }
 
     .hero {
-      padding: 80px 40px 60px;
+      padding: 80px 40px 40px;
       text-align: center;
-      background: radial-gradient(ellipse at 50% 0%, rgba(99,102,241,0.08), transparent 60%);
+      background: radial-gradient(ellipse at 50% 0%, rgba(99,102,241,0.06), transparent 60%);
     }
 
-    .hero h1 {
-      font-size: 36px;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      margin-bottom: 8px;
-      background: linear-gradient(135deg, #fff, #818cf8);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+    .hero h1 { font-size: 32px; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 6px; }
+    .hero p { font-size: 14px; color: #555; }
 
-    .hero p {
-      font-size: 15px;
-      color: #666;
-      max-width: 500px;
-      margin: 0 auto;
-    }
+    .comparison { max-width: 1400px; margin: 0 auto; padding: 40px 24px; }
 
-    .section { padding: 40px; max-width: 1200px; margin: 0 auto; }
-    .section-title {
-      font-size: 12px;
-      font-weight: 650;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: #555;
-      margin-bottom: 20px;
+    .approach { margin-bottom: 64px; }
+    .approach-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 8px; }
+    .approach-num {
+      font-size: 11px; font-weight: 700; color: #6366f1;
+      background: rgba(99,102,241,0.1); padding: 4px 10px; border-radius: 20px; letter-spacing: 0.06em;
     }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-      gap: 32px;
-    }
-
-    .card-wrapper {
-      position: relative;
-    }
-
-    .card-label {
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #444;
-      margin-bottom: 12px;
-    }
-
-    .wide { max-width: 480px; }
-    .narrow { max-width: 600px; }
+    .approach-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; }
+    .approach-desc { font-size: 13px; color: #666; max-width: 600px; margin-bottom: 24px; line-height: 1.6; }
+    .preview-area { max-width: 420px; }
 
     .divider {
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
-      margin: 20px 0;
-    }
-
-    /* Light mode preview background */
-    .light-bg {
-      background: #f5f5f5;
-      padding: 28px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.04);
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+      margin: 40px 0;
     }
   </style>
 </head>
 <body>
 
   <div class="hero">
-    <h1>ScrobbleTime</h1>
-    <p>Live identity cards for personal websites. All layouts and themes.</p>
+    <h1>Which one feels right?</h1>
+    <p>Three visual directions for the ScrobbleTime embed. Same data, different energy.</p>
   </div>
 
-  <div class="section">
-    <div class="section-title">Card Layout — Dark Themes</div>
-    <div class="grid">
-      <div class="card-wrapper">
-        <div class="card-label">Auto (Dark)</div>
+  <div class="comparison">
+
+    <div class="approach">
+      <div class="approach-header">
+        <span class="approach-num">01</span>
+        <h2 class="approach-title">Bento Grid</h2>
+      </div>
+      <p class="approach-desc">
+        Each service gets its own visual tile. Chess has a knight silhouette on board-green.
+        Code has terminal dots and colored language bars. Film has frame outlines.
+        Fitness has a runner silhouette on Strava-orange. Identity through visual variety.
+      </p>
+      <div class="preview-area">
+        <scrobble-time base-url="/activity.json" layout="bento" theme="auto"></scrobble-time>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="approach">
+      <div class="approach-header">
+        <span class="approach-num">02</span>
+        <h2 class="approach-title">Immersive Hero</h2>
+      </div>
+      <p class="approach-desc">
+        One dominant visual. Background adapts to what's most active — blurred album art,
+        chess green, code dark. Signals float as frosted-glass chips. Full Spotify energy.
+      </p>
+      <div class="preview-area">
+        <scrobble-time base-url="/activity.json" layout="immersive" theme="auto"></scrobble-time>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="approach">
+      <div class="approach-header">
+        <span class="approach-num">03</span>
+        <h2 class="approach-title">Clean Editorial</h2>
+      </div>
+      <p class="approach-desc">
+        Dark hero for the NOW moment. Below: curated signal rows with service icons.
+        Not "Public Repos: 42" but "Building with TypeScript, Python" and "1847↑ Blitz rating".
+        Editorial phrasing, not analytics.
+      </p>
+      <div class="preview-area">
         <scrobble-time base-url="/activity.json" layout="card" theme="auto"></scrobble-time>
       </div>
-      <div class="card-wrapper">
-        <div class="card-label">Professional</div>
-        <scrobble-time base-url="/activity.json" layout="card" theme="professional"></scrobble-time>
-      </div>
-      <div class="card-wrapper">
-        <div class="card-label">Playful</div>
-        <scrobble-time base-url="/activity.json" layout="card" theme="playful"></scrobble-time>
-      </div>
-      <div class="card-wrapper">
-        <div class="card-label">Minimal</div>
-        <scrobble-time base-url="/activity.json" layout="card" theme="minimal"></scrobble-time>
-      </div>
     </div>
-  </div>
 
-  <div class="divider"></div>
-
-  <div class="section">
-    <div class="section-title">Profile Layout</div>
-    <div class="wide">
-      <scrobble-time base-url="/activity.json" layout="profile" theme="auto"></scrobble-time>
-    </div>
-  </div>
-
-  <div class="divider"></div>
-
-  <div class="section">
-    <div class="section-title">Signature Layout</div>
-    <div class="narrow">
-      <scrobble-time base-url="/activity.json" layout="signature" theme="auto"></scrobble-time>
-    </div>
-  </div>
-
-  <div class="divider"></div>
-
-  <div class="section">
-    <div class="section-title">Compact Density</div>
-    <div style="max-width: 380px;">
-      <scrobble-time base-url="/activity.json" layout="card" theme="auto" density="compact"></scrobble-time>
-    </div>
-  </div>
-
-  <div class="divider"></div>
-
-  <div class="section">
-    <div class="section-title">States</div>
-    <div class="grid">
-      <div class="card-wrapper">
-        <div class="card-label">Loading (bad URL)</div>
-        <scrobble-time base-url="/nonexistent.json" layout="card" theme="auto"></scrobble-time>
-      </div>
-    </div>
   </div>
 
   <div style="height: 80px;"></div>
